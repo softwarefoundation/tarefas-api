@@ -14,6 +14,7 @@ public class TarefaDto implements Serializable {
     private Long id;
     private String descricao;
     private Boolean concluido;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private LocalDateTime dataCadastro;
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private LocalDateTime dataConclusao;
