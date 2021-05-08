@@ -1,6 +1,8 @@
 package com.softwarefoundation.tarefas.entity;
 
+import com.softwarefoundation.tarefas.dto.TarefaDto;
 import lombok.Data;
+import org.modelmapper.ModelMapper;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -26,5 +28,9 @@ public class Tarefa implements Serializable {
 
     @Column(name = "DATA_CONCLUSAO")
     private LocalDateTime dataConclusao;
+
+    public TarefaDto toDto() {
+        return new ModelMapper().map(this, TarefaDto.class);
+    }
 
 }
