@@ -14,4 +14,6 @@ public interface TarefaService {
 
     void delete(TarefaDto dto);
 
+    TarefaDto concluirTarefa(TarefaDto dto);
+
 }

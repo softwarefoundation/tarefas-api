@@ -65,4 +65,18 @@ public class TarefaResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
+    @PatchMapping("/{id}")
+    @ApiResponses({@ApiResponse(code = 200, message = "Ok")
+            , @ApiResponse(code = 400, message = "Bad Request")
+            , @ApiResponse(code = 404, message = "Not Foound")
+            , @ApiResponse(code = 500, message = "Internal Server Error")})
+    public ResponseEntity<TarefaDto> concluirTarefa(@PathVariable(name = "id") Long id) {
+        log.info("Concluir tarefa: {}", id);
+        TarefaDto dto = new TarefaDto();
+        dto.setId(id);
+        dto = tarefaService.concluirTarefa(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+
 }
